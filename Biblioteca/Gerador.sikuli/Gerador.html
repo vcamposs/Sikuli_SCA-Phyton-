@@ -1,0 +1,130 @@
+
+<html>
+   <head>
+      <style type="text/css">
+         .sikuli-code {
+            font-size: 20px;
+            font-family: "Osaka-mono", Monospace;
+            line-height: 1.5em;
+            display:table-cell;
+            white-space: pre-wrap;       /* css-3 */
+            white-space: -moz-pre-wrap !important;  /* Mozilla, since 1999 */
+            white-space: -pre-wrap;      /* Opera 4-6 */
+            white-space: -o-pre-wrap;    /* Opera 7 */
+            word-wrap: break-word;       /* Internet Explorer 5.5+ */
+            width: 99%;   /* remove horizontal scroll-bar when viewing in IE7 */
+         }
+         .sikuli-code img {
+            vertical-align: middle;
+            margin: 2px;
+            border: 1px solid #ccc;
+            padding: 2px;
+            -moz-border-radius: 5px;
+            -webkit-border-radius: 5px;
+            -moz-box-shadow: 1px 1px 1px gray;
+            -webkit-box-shadow: 1px 1px 2px gray;
+         }
+         .kw {
+            color: blue;
+         }
+         .skw {
+            color: rgb(63, 127, 127);
+         }
+
+         .str {
+            color: rgb(128, 0, 0);
+         }
+
+         .dig {
+            color: rgb(128, 64, 0);
+         }
+
+         .cmt {
+            color: rgb(200, 0, 200);
+         }
+
+         h2 {
+            display: inline;
+            font-weight: normal;
+         }
+
+         .info {
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+            margin-bottom: 20px;
+            display: none;
+         }
+
+         a {
+            color: #9D2900;
+         }
+
+         body {
+            font-family: "Trebuchet MS", Arial, Sans-Serif;
+         }
+
+      </style>
+   </head>
+<body>
+<div class="info">
+<h2>Gerador.sikuli\Gerador.sikuli</h2> <a href="Gerador.sikuli\Gerador.zip">(Download this script)</a>
+</div>
+<pre class="sikuli-code">
+<span class="kw">import</span> time
+<span class="kw">from</span> datetime <span class="kw">import</span> datetime, timedelta
+<span class="kw">import</span> os, sys
+<span class="kw">from</span> sikuli <span class="kw">import</span> *
+<span class="kw">from</span> random <span class="kw">import</span>*
+
+<span class="kw">def</span> nome():
+
+    listaNomesMasculinos = [<span class="str">"Diogo"</span>,<span class="str">"Enzo"</span>,<span class="str">"Guilherme"</span>,<span class="str">"Kauan"</span>,<span class="str">"Luiz"</span>,
+                            <span class="str">"Martim"</span>,<span class="str">"Murilo"</span>,<span class="str">"Rodrigo"</span>,<span class="str">"Samuel"</span>,<span class="str">"Victor"</span>]
+
+    listaNomesFemininos  = [<span class="str">"Agatha"</span>,<span class="str">"Aline"</span>,<span class="str">"Anna"</span>,<span class="str">"Julia"</span>,<span class="str">"Paula"</span>,
+                            <span class="str">"Raisa"</span>,<span class="str">"Mariana"</span>, <span class="str">"Marina"</span>,<span class="str">"Claudia"</span>,<span class="str">"Neusa"</span>]
+
+    listaSobrenomes      = [<span class="str">"Alves"</span>,<span class="str">"Carvalho"</span>,<span class="str">"Cunha"</span>,<span class="str">"Pereira"</span>,<span class="str">"Costa"</span>,
+                            <span class="str">"Dias"</span>,<span class="str">"Azevedo"</span>,<span class="str">"Araujo"</span>,<span class="str">"Ribeiro"</span>,<span class="str">"Cardoso"</span>,
+                            <span class="str">"Oliveira"</span>,<span class="str">"Cavalcanti"</span>,<span class="str">"Tula"</span>,<span class="str">"Ferreira "</span>,<span class="str">"Rodrigues"</span>,
+                            <span class="str">"Goncalves"</span>,<span class="str">"Dias"</span>,<span class="str">"Oliveira"</span>,<span class="str">"Alves"</span>,<span class="str">"Araujo"</span>,
+                            <span class="str">"Azevedo"</span>,<span class="str">"Barbosa"</span>,<span class="str">"Cardoso "</span>,<span class="str">"Carvalho"</span>,<span class="str">"Costa"</span>,
+                            <span class="str">"Cunha"</span>,<span class="str">"Dias"</span>,<span class="str">"Goncalves"</span>,<span class="str">"Oliveira"</span>,<span class="str">"Pereira"</span>,
+                            <span class="str">"Ribeiro"</span>,<span class="str">"Rodrigues"</span>,<span class="str">"Tula"</span>,<span class="str">"Pecci"</span>,<span class="str">"Nupe"</span>]
+
+    tipoGenero = choice([<span class="str">"MASCULINO"</span>,<span class="str">"FEMININO"</span>])
+
+    <span class="kw">if</span> (tipoGenero == <span class="str">"MASCULINO"</span>) :
+        listaNomes = listaNomesMasculinos
+    <span class="kw">elif</span> (tipoGenero == <span class="str">"FEMININO"</span>):
+        listaNomes = listaNomesFemininos
+
+    strNome         = choice(listaNomes)
+    strSobrenome_01 = choice(listaSobrenomes)
+    strSobrenome_02 = choice(listaSobrenomes)
+
+    strNomeSobrenome = strNome + <span class="str">" "</span> + strSobrenome_01 + <span class="str">" "</span> + strSobrenome_02
+
+    <span class="kw">return</span> strNomeSobrenome
+
+<span class="kw">def</span> data(qtdDias):
+    dataHoje       = datetime.today()
+    dataSolicitada = datetime.fromordinal(dataHoje.toordinal() + qtdDias)
+    strData        = dataSolicitada.strftime(<span class="str">"%d/%m/%Y"</span>)
+
+    <span class="kw">return</span> strData
+
+<span class="kw">def</span> telefoneFixo():
+    strNumeroTelefoneFixo = <span class="str">"(019)32"</span> + str(randint(<span class="dig">10</span>,<span class="dig">99</span>)) + <span class="str">"-"</span> + str(randint(<span class="dig">1000</span>,<span class="dig">9999</span>))
+    <span class="kw">return</span> strNumeroTelefoneFixo
+
+<span class="kw">def</span> celular():
+    strNumeroCelular = <span class="str">"(019)99"</span> + str(randint(<span class="dig">10</span>,<span class="dig">99</span>)) + <span class="str">"-"</span> + str(randint(<span class="dig">1000</span>,<span class="dig">9999</span>))
+    <span class="kw">return</span> strNumeroCelular
+
+<span class="kw">def</span> email(strNome):
+    strEmail = strNome.replace(<span class="str">" "</span>,<span class="str">"."</span>) + <span class="str">"@"</span> + choice([<span class="str">"gmail"</span>,<span class="str">"hotmail"</span>,<span class="str">"academia123"</span>]) + <span class="str">".com"</span>
+    <span class="kw">return</span> strEmail
+</pre>
+</body>
+</html>
