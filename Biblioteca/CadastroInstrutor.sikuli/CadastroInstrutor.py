@@ -12,20 +12,7 @@ reload(Gerador)
 
 def inclusao():    
     dataInicio = time.time()
-
-    click(Pattern("botaoCadastroInstrutor.png").similar(0.90))
-    wait(3)
-
-    while not exists("barraSuperiorSelecaoInstrutores.png"):
-        print "[LOG] Aguardando abertura da tela ..."
-        wait(1)
-    
-    type('n', KeyModifier.CTRL)
-
-    while not exists("barraSuperiorCadastroInstrutores.png"):
-        print "[LOG] Aguardando abertura da tela ..."
-        wait(1)
-    
+    aberturaTelaDeCadastroInstrutor()
     strNomeIntrutor = Gerador.nome()
 
     paste(strNomeIntrutor)
@@ -54,13 +41,30 @@ def inclusao():
     paste("Nota cadastro instrutores")
     wait(2)
 
+    # fecha tela de cadastro de instrutor
     type('f', KeyModifier.CTRL)
+    wait(2)
 
     while exists("barraSuperiorCadastroInstrutores.png"):
         print "[LOG] Aguardando abertura da tela ..."
         wait(1)
     
+    type(Key.F3)
     Uteis.fechaTela()
     wait(5)
     
     return Uteis.delta(dataInicio, time.time())
+
+def aberturaTelaDeCadastroInstrutor():
+    click(Pattern("botaoCadastroInstrutor.png").similar(0.90))
+    wait(3)
+
+    while not exists("barraSuperiorSelecaoInstrutores.png"):
+        print "[LOG] Aguardando abertura da tela ..."
+        wait(1)
+    
+    type('n', KeyModifier.CTRL)
+
+    while not exists("barraSuperiorCadastroInstrutores.png"):
+        print "[LOG] Aguardando abertura da tela ..."
+        wait(1)    
