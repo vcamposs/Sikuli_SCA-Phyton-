@@ -11,18 +11,20 @@ importPathLib = myPath.replace("/", "\\\\")
 if not importPathLib in sys.path:
     sys.path.append(importPathLib)
 
-import Login
+# Import bibliotecas
+import Login 
 reload(Login)
-
 import Uteis
 reload(Uteis)
-
-import CadastroInstrutor
+import CadastroInstrutor 
 reload(CadastroInstrutor)
 
-dicionarioTempoExecucao = {}
-dicionarioTempoExecucao['login'] = Login.userioLogin() 
-dicionarioTempoExecucao['cadastroInstrutor'] = CadastroInstrutor.inclusao()
+# Chamada fluxo
+dctTempoExecucao = {}
+dctTempoExecucao['login']  = Login.userioLogin() 
+dctTempoExecucao['cadastroInstrutor'] = CadastroInstrutor.inclusao()
 Uteis.fechaSCA()
 
-print dicionarioTempoExecucao
+print "-- Tempo Execução --"
+print "Login : " + dctTempoExecucao['login']
+print "Cadastro Instrutor : " + dctTempoExecucao['cadastroInstrutor'] 

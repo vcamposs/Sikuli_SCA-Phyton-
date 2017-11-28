@@ -16,7 +16,7 @@ def userioLogin():
     myApp = App(strExecutaveSCA)
     myApp.open()
     
-    while not exists("1508103645877.png"):
+    while not exists("telaLogin.png"):
         print "[LOG] Aguardando a abertura da tela de login." 
         wait(1)
         
@@ -28,7 +28,7 @@ def userioLogin():
     Uteis.tabOrder(2, 0.5)
     type(Key.ENTER)
 
-    while not exists ("1508109212997.png"):
+    while not exists ("barraSuperiorTelaInicial.png"):
         print "[LOG] Aguardando a abertura da tela inicial do SCA." 
         wait(1)
     print "[LOG] SCA aberto com sucesso."

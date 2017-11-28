@@ -32,7 +32,7 @@ def fechaSCA():
     type(Key.F4, KeyModifier.ALT)
     wait(2)
 
-    while not exists("1511311333658.png"):
+    while not exists("telaSaidaSistema.png"):
         wait(1)
 
     type(Key.LEFT)

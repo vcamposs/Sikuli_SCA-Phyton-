@@ -13,16 +13,16 @@ reload(Gerador)
 def inclusao():    
     dataInicio = time.time()
 
-    click(Pattern("1511303152047.png").similar(0.90))
+    click(Pattern("botaoCadastroInstrutor.png").similar(0.90))
     wait(3)
 
-    while not exists("1511303563990.png"):
+    while not exists("barraSuperiorSelecaoInstrutores.png"):
         print "[LOG] Aguardando abertura da tela ..."
         wait(1)
     
     type('n', KeyModifier.CTRL)
 
-    while not exists("1511312968532.png"):
+    while not exists("barraSuperiorCadastroInstrutores.png"):
         print "[LOG] Aguardando abertura da tela ..."
         wait(1)
     
@@ -43,20 +43,20 @@ def inclusao():
     Uteis.tabOrder(1,5)
 
     paste(Gerador.telefoneFixo())
-    Uteis.tabOrder(1,2)
+    Uteis.tabOrder(1,5)
 
     paste(Gerador.celular())
-    Uteis.tabOrder(1,2)
+    Uteis.tabOrder(1,5)
 
     paste(Gerador.email(strNomeIntrutor))
-    Uteis.tabOrder(1,2)
+    Uteis.tabOrder(1,5)
 
     paste("Nota cadastro instrutores")
     wait(2)
 
     type('f', KeyModifier.CTRL)
 
-    while exists("1511312968532.png"):
+    while exists("barraSuperiorCadastroInstrutores.png"):
         print "[LOG] Aguardando abertura da tela ..."
         wait(1)
     
