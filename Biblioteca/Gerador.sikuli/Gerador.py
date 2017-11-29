@@ -1,3 +1,5 @@
+#!/usr/bin/python
+# -*- coding: latin-1 -*-
 import time
 from datetime import datetime, timedelta
 import os, sys

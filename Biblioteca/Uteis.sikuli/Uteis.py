@@ -1,3 +1,5 @@
+#!/usr/bin/python
+# -*- coding: latin-1 -*-
 import os
 import time
 import datetime
@@ -19,7 +21,7 @@ def dropDown(qtdDropDown, tmpWait):
         wait(tmpWait)
         cont = cont + 1
 
-# A funcão "tabOrder()" foi criada para a codificação ficar mais enxuta,
+# A funcão "tabOrder()" foi criada para a codificacão ficar mais enxuta,
 # é passado o número de vezes que o comando "type(Key.TAB)" é chamado
 # incluindo o tempo de espera entre um e outro.
 def tabOrder(qtdTabOrder, tmpWait):

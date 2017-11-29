@@ -1,3 +1,5 @@
+#!/usr/bin/python
+# -*- coding: latin-1 -*-
 import time
 import datetime
 import os, sys
@@ -29,7 +31,7 @@ def userioLogin():
 
     # Inclusão de login e senha.
     paste(strlogin)
-    Uteis.tabOrder(1, 0.5) # A funcão "tabOrder()" foi criada para a codificação ficar mais enxuta.
+    Uteis.tabOrder(1, 0.5) # A funcão "tabOrder()" foi criada para a codificacão ficar mais enxuta.
     paste(strsenha)
     Uteis.tabOrder(2, 0.5)
     type(Key.ENTER)
