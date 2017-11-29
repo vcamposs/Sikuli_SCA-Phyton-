@@ -4,6 +4,7 @@ import os, sys
 from sikuli import *
 from random import*
 
+# Gera nomes e sobrenome randomicamente.
 def nome():  
     
     listaNomesMasculinos = ["Diogo","Enzo","Guilherme","Kauan","Luiz",
@@ -35,6 +36,7 @@ def nome():
 
     return strNomeSobrenome
 
+# Retorna data no fomato "dd/mm/yyyy" usando como base os dias passados.
 def data(qtdDias):
     dataHoje       = datetime.today()
     dataSolicitada = datetime.fromordinal(dataHoje.toordinal() + qtdDias)
@@ -42,14 +44,17 @@ def data(qtdDias):
 
     return strData
 
+# Gera numero de telefone fixo de forma randomica contendo o prefixo "(019)32" randomicamente
 def telefoneFixo():
     strNumeroTelefoneFixo = "(019)32" + str(randint(10,99)) + "-" + str(randint(1000,9999))
     return strNumeroTelefoneFixo
 
+# Gera numero de celular fixo de forma randomica contendo o prefixo "(019)99" randomicamente
 def celular():
     strNumeroCelular = "(019)99" + str(randint(10,99)) + "-" + str(randint(1000,9999))
     return strNumeroCelular
 
+# Gera o endereco de email com base no nome gerado pela funcão "nome()"
 def email(strNome):
     strEmail = strNome.replace(" ",".") + "@" + choice(["gmail","hotmail","academia123"]) + ".com"
     return strEmail

@@ -18,13 +18,20 @@ import Uteis
 reload(Uteis)
 import CadastroInstrutor 
 reload(CadastroInstrutor)
+import Relatorio 
+reload(Relatorio)
 
-# Chamada fluxo
-dctTempoExecucao = {}
-dctTempoExecucao['login']  = Login.userioLogin() 
-dctTempoExecucao['cadastroInstrutor'] = CadastroInstrutor.inclusao()
-Uteis.fechaSCA()
-
-print "-- Tempo Execução --"
-print "Login : " + dctTempoExecucao['login']
-print "Cadastro Instrutor : " + dctTempoExecucao['cadastroInstrutor'] 
+try:
+    dctTempoExecucao = {}
+    dctTempoExecucao['login']  = Login.userioLogin() 
+    dctTempoExecucao['cadastroInstrutor'] = CadastroInstrutor.inclusao()
+    Uteis.fechaSCA()
+    # Chamada do relatório HTML
+    Relatorio.montaRelatorio(dctTempoExecucao,"SUCESSO")
+    print "[Log] Processo executado com SUCESSO."
+except:
+    dctTempoExecucao['login']  = "--" 
+    dctTempoExecucao['cadastroInstrutor'] = "--"
+    # Chamada do relatório HTML
+    Relatorio.montaRelatorio(dctTempoExecucao,"ERRO")
+    print "[Log] Processo executado com ERRO."
