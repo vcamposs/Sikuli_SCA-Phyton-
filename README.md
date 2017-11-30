@@ -1,2 +1,4 @@
 # Sikuli_SCA
-Projeto de automação de testes para a aplicação SCA
+Projeto de automação de testes utilizando Sikuli IDE.
+
+![Exemplo](ExemploExecuçãoFluxo.gif)
