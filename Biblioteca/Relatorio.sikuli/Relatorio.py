@@ -86,4 +86,4 @@ def aberturaRelatorioChrome():
 
     # Maximiza a tela.
     type(Key.F11)
-    wait(2)
+    wait(20)
